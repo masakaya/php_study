@@ -1,0 +1,12 @@
+version: "2"
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+     - ./html:/var/www/html:consistent
+     - ./php.ini:/usr/local/etc/php/php.ini:cached
+    working_dir: /var/www/html
+    ports:
+      - "8000:80"
